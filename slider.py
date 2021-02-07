@@ -7,17 +7,6 @@ from bokeh.plotting import figure
 
 
 
-import sys
-#creo un bottone per chiudereil servere e avere il prompt di anaconda libero
-def button_callback():
-    sys.exit()  # Stop the server
-# Button to stop the server
-ex_button = Button(label="Clicca per chiudere", button_type="success")
-ex_button.on_click(button_callback)
-
-
-
-
 # Set up data
 N = 200
 x = np.linspace(0, 4*np.pi, N)
@@ -72,5 +61,5 @@ for sample in [offset, amplitude, phase, freq]:
 # Set up layouts and add to document
 inputs = column(text, offset, amplitude, phase, freq)
 
-curdoc().add_root(row(ex_button,inputs, plot, width=800))
+curdoc().add_root(row(inputs, plot, width=800))
 curdoc().title = "Sliders"
